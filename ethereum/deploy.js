@@ -12,14 +12,14 @@ const web3 = new Web3(provider)
 const deploy = async () => {
     const accounts = await web3.eth.getAccounts()
 
-    console.log("Attempting to dpeloy from account", accounts[0])
+    console.log("Attempting to deploy from account", accounts[0])
 
     const result = await new web3.eth.Contract(JSON.parse(compiledFactory.interface)) //ABI
         .deploy({ data: compiledFactory.bytecode })
         .send({from: accounts[0], gas: '1000000' })
 
     console.log('contract deployed to:', result.options.address)    
-    0xb1f18fB8Efb2065B9A1Fb14349077B1BbF8d36fF
+    
 }
 deploy()
 
